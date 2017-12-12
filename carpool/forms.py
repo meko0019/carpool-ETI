@@ -134,7 +134,7 @@ class CarpoolForm(forms.Form):
 		super(CarpoolForm, self).__init__(*args, **kwargs)
 		self.fields['start'].queryset= waypoints
 		self.fields['start'].to_field_name= 'full_address'
-		self.fields['waypoints'].queryset = trips
+		self.fields['waypoints'].queryset = waypoints
 		self.fields['waypoints'].to_field_name= 'full_address'
 		self.fields['end'].queryset = trips
 		self.fields['end'].to_field_name= 'full_address'

@@ -9,10 +9,28 @@ from django import forms
 
 # Create your views here.
 def home(request):
+	user = request.user
+	if user.is_authenticated():
+		'''
+		create some initial trips and waypoints for demo purposes 
 
-	if request.user.is_authenticated():
-		users = User.objects.all()
-		args = {'user': request.user, 'users': users}
+		'''
+		if Trip.objects.count() == 0:
+			trip1 = Trip(created_by=user, name='xcel', date = '2017-12-14 12:20', street = '199 W Kellogg Blvd', 
+				city='St Paul', state='MN', zipcode = 55102, full_address='199 W Kellogg Blvd, St Paul MN 55102')
+			trip2 = Trip(created_by=user, name='work', date = '2017-12-15 8:20', street = '200 SE Oak St', 
+				city='Minneapolis', state='MN', zipcode = 55455, full_address='200 SE Oak St Minneapolis, MN 55455')
+			trip1.save()
+			trip2.save()
+
+
+		if Waypoint.objects.count() == 0:
+			wp1 = Waypoint(created_by=user, street = '60 E Broadway', city='Bloomington', state='MN', zipcode = 55425, full_address='60 E Broadway Bloomington, MN 55425')
+			wp2 = Waypoint(created_by=user, street = '1178 Burnsville Center', city='Burnsville', state='MN', zipcode = 55306, full_address='1178 Burnsville Center Burnsville, MN')
+			wp1.save()
+			wp2.save()
+
+		args = {'user': user}
 		return render(request, 'index.html', args)
 	else:
 		return redirect('signup')
@@ -34,17 +52,17 @@ def signup(request):
 
 			else:
 					#TODO: check error code and propose a fix
-					return redirect('invalid')
+				return redirect('invalid')
 
 		else:
 			form = UserCreationForm()
 			return render(request, 'signup.html', {'form': form})
-			
+
 @login_required
 def post(request):
 	''' 
 	We will use the email field to get the user since each email is unique
-	TODO: provide alterative formats for dates, then span with a calendar JS widget
+	TODO: provide alterative formats for dates, then span with a JS calendar widget
 	'''
 
 	user = User.objects.get(email=request.user.email)
@@ -53,6 +71,7 @@ def post(request):
 		if form.is_valid():
 			form = form.save(commit=False)
 			form.created_by = user
+			form.full_address = " ".join([form.POST['street'], form.POST['city'], form.POST['state'], form.POST['zipcode']])
 			form.save()
 			return redirect('home')
 		else:
@@ -90,7 +109,7 @@ def select(request):
 	    	return redirect('invalid')
 
 	else:
-	    form = SelectForm(initial = {'trip': trips.get(pk=1)})
+	    form = SelectForm()
 	    args = {'user': user, 'form': form, 'trips': trips}
 	    
 	    return render(request, 'select.html', args)

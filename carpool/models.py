@@ -101,7 +101,7 @@ class Trip(models.Model):
 
 class Waypoint(models.Model):
 	created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-	trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+	trip = models.ForeignKey(Trip, null=True, on_delete=models.CASCADE)
 	street = models.CharField(max_length = 255)
 	city = models.CharField(max_length = 100)
 	state = models.CharField(max_length=2)
