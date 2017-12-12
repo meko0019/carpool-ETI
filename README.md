@@ -15,7 +15,7 @@ destination, waypoint locations to be included in route, and the final route, re
 
 $ git clone https://github.com/meko0019/carpool-ETI.git
 
-$ virtual venv && source venv/bin/activate 
+$ virtualenv venv && source venv/bin/activate 
 
 $ cd carpool-ETI/carpool_ETI
 
