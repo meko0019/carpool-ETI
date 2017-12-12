@@ -27,4 +27,4 @@ $ python manage.py makemigrations
 
 $ python manage.py migrate
 
-$ python createsuperuser
+$ python manage.py createsuperuser
