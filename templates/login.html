@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- www.minumul.com -->
+<head>
+{% load staticfiles %}
+  <meta charset="utf-8" />
+
+<link href="{% static '/css/login.css' %}" rel="stylesheet" type = "text/css"/>
+
+</head>
+
+    
+    
+<body>
+<div class="login-page">
+  <div class="form">
+    <h3 style="color: #5eafe4"> Welcome back! </h3>
+    <form class="login-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form.as_p }}
+       <button type="submit">Login</button>
+      <p class="message">Not registered? <a href="{% url 'signup' %}">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+    
+</html>

@@ -1,0 +1,29 @@
+form { margin: 0px 10px; }
+
+
+.row {
+  margin: 20px
+}
+
+.col-xs-6:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+/*#signupSubmit {
+  width: 30%;
+}*/
+.container { max-width: 750px; margin-top: 40px}
+
+.btn {
+color: #5eafe4;
+}
+
+
+
+.form-title { text-align: center; }
+
+
+.left { float: left; }
+
+.right { float: right; }
+

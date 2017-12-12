@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">   
+  <div class="container">
+    
+  <div class="row">
+      <form method="POST" action = "{% url 'post' %}" role="form" >
+        {% csrf_token %}
+         <h4 >Post trip</h4>   
+          <div class="form-group">  
+            <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">Name of trip</label>
+                <div class="input-group">
+                     {{ form.name }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+
+          <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">Date</label>
+                <div class="input-group">
+                     {{ form.date }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+
+          <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">street address</label>
+                <div class="input-group">
+                     {{ form.street }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+
+         <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">city</label>
+                <div class="input-group">
+                     {{ form.city }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+
+            <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">state</label>
+                <div class="input-group">
+                     {{ form.state }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+
+          <div class = "row" >
+            <div class="col-md-6 col-xs-10">
+            <label for="InputName">Zipcode</label>
+                <div class="input-group">
+                     {{ form.zipcode }}
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                 </div>
+                <br>
+            </div>
+          </div>
+   </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+{%endblock%}
+
