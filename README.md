@@ -17,7 +17,7 @@ $ git clone https://github.com/meko0019/carpool-ETI.git
 
 $ virtualenv venv && source venv/bin/activate 
 
-$ cd carpool-ETI/carpool_ETI
+$ cd carpool-ETI
 
 $ pip install -r requirements.txt
 
