@@ -19,11 +19,9 @@ $ virtualenv venv && source venv/bin/activate
 
 $ cd carpool-ETI
 
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 
 ## Usage
-
-- cd into the BASE dir
 
 $ python manage.py makemigrations 
 
